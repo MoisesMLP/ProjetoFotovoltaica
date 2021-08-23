@@ -4,49 +4,35 @@ using UnityEngine;
 
 public class camera1 : MonoBehaviour
 {
-    public Transform characterBody;
-    public Transform characterHead;
+    public float sensibilidade = 100f;
 
-    float sensitivityX = 1.0f;
-    float sensitivityY = 1.0f;
+    // declarando corpo que a camera ira seguir
+    public Transform CorpoDoPlayer;
 
-    float rotationX = 0;
-    float rotationY = 0;
+    float xRotacao = 0f;
 
-    float angleYmin = -90;
-    float angleYmax = 90;
-
-    float smoothRotx = 0;
-    float smoothRoty = 0;
-
-    float smoothCoefx = 0.05f;
-    float smoothCoefy = 0.05f;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
+        //inicia como o cursor do mouse no meio
         Cursor.lockState = CursorLockMode.Locked;
     }
-    private void LateUpdate()
-    {
-        transform.position = characterHead.position;
-    }
+   
     // Update is called once per frame
     void Update()
     {
-        float verticalDelta = Input.GetAxisRaw("Mouse Y") * sensitivityY;
-        float horizontalDelta = Input.GetAxisRaw("Mouse X") * sensitivityX;
+        //pegando valores do de acordo com os eixos do mouse
+        float mouseX = Input.GetAxis("Mouse X") * sensibilidade * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensibilidade * Time.deltaTime;
 
-        smoothRotx = Mathf.Lerp(smoothRotx, horizontalDelta, smoothCoefx);
-        smoothRoty = Mathf.Lerp(smoothRoty, verticalDelta, smoothCoefy);
+        //pegando o valor obtido nos eixos y do mouse e usando na rotação da camera
+        xRotacao -= mouseY;
+        transform.localRotation = Quaternion.Euler(xRotacao, 0f, 0f);
 
-        rotationX += smoothRotx;
-        rotationY += smoothRoty;
+        //bloqueando a rotação acima de 180 graus no eixo y
+        xRotacao = Mathf.Clamp(xRotacao, -90f, 90f);
 
-        rotationY = Mathf.Clamp(rotationY, angleYmin, angleYmax);
-
-        characterBody.localEulerAngles = new Vector3(0, rotationX, 0);
-
-        transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+        //pegando o valor obtido nos eixos x do mouse e usando na rotação da camera a partir do corpo do player
+        CorpoDoPlayer.Rotate(Vector3.up * mouseX);
     }
 }
