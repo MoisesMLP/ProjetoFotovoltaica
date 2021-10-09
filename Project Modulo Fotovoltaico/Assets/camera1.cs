@@ -11,11 +11,12 @@ public class camera1 : MonoBehaviour
 
     float xRotacao = 0f;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        //inicia como o cursor do mouse no meio
-        Cursor.lockState = CursorLockMode.Locked;
+
     }
    
     // Update is called once per frame
@@ -34,5 +35,9 @@ public class camera1 : MonoBehaviour
 
         //pegando o valor obtido nos eixos x do mouse e usando na rotação da camera a partir do corpo do player
         CorpoDoPlayer.Rotate(Vector3.up * mouseX);
+
+
+        
+                   
     }
 }

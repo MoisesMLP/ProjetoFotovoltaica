@@ -9,8 +9,8 @@ InputManager:
     m_Name: Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
+    negativeButton: a
+    positiveButton: d
     altNegativeButton: a
     altPositiveButton: d
     gravity: 3
@@ -25,8 +25,8 @@ InputManager:
     m_Name: Vertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
+    negativeButton: s
+    positiveButton: w
     altNegativeButton: s
     altPositiveButton: w
     gravity: 3
@@ -246,13 +246,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Submit
+    m_Name: SetaDireita
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: return
+    positiveButton: right
     altNegativeButton: 
-    altPositiveButton: joystick button 0
+    altPositiveButton: right
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -269,6 +269,54 @@ InputManager:
     positiveButton: enter
     altNegativeButton: 
     altPositiveButton: space
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: SetaEsquerda
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: left
+    altNegativeButton: 
+    altPositiveButton: left
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: SetaCima
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: up
+    altNegativeButton: 
+    altPositiveButton: up
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: SetaBaixo
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: down
+    altNegativeButton: 
+    altPositiveButton: down
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
